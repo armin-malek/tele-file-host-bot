@@ -31,7 +31,10 @@ app.post("/img", upload.single("img"), async (req, res) => {
       filename: req.file.originalname,
     });
 
-    res.send(uploadedDoc);
+    res.send(
+      "http://tfile.thotero.com:2095/img/" +
+        uploadedDoc?.photo[uploadedDoc?.photo.length - 1].file_id
+    );
   } catch (err) {
     console.log(err);
   }
