@@ -30,9 +30,8 @@ app.post("/img", upload.single("img"), async (req, res) => {
       source: req.file.buffer,
       filename: req.file.originalname,
     });
-    console.log("uploadedDoc", uploadedDoc);
 
-    res.send("ok");
+    res.send(uploadedDoc);
   } catch (err) {
     console.log(err);
   }
